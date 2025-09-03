@@ -20,7 +20,7 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        // STEP 1: Call generateWebhook API
+        
         String generateUrl = "https://bfhldevapigw.healthrx.co.in/hiring/generateWebhook/JAVA";
 
         Map<String, String> requestBody = new HashMap<>();
@@ -32,7 +32,8 @@ public class DemoApplication implements CommandLineRunner {
         String accessToken = null;
 
         try {
-            ResponseEntity<Map> response = restTemplate.postForEntity(generateUrl, requestBody, Map.class);
+            ResponseEntity<Map> response =
+                    restTemplate.postForEntity(generateUrl, requestBody, Map.class);
 
             if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
                 webhookUrl = (String) response.getBody().get("webhook");
@@ -47,15 +48,14 @@ public class DemoApplication implements CommandLineRunner {
             System.out.println("⚠️ API call failed: " + e.getMessage());
         }
 
-        
+        // STOP if webhook or accessToken is missing
         if (webhookUrl == null || accessToken == null) {
             System.out.println("❌ Cannot continue without webhook & accessToken.");
             return;
         }
 
         
-        String finalQuery = "QUERY_HERE";
-        
+        String finalQuery = "SELECT s_name FROM student WHERE s_marks > 80;";
 
         
         try {
