@@ -24,9 +24,9 @@ public class DemoApplication implements CommandLineRunner {
         String generateUrl = "https://bfhldevapigw.healthrx.co.in/hiring/generateWebhook/JAVA";
 
         Map<String, String> requestBody = new HashMap<>();
-        requestBody.put("name", "Uzma Farzana M");                     // Your Name
-        requestBody.put("regNo", "1RF22IS093");                        // Your RegNo
-        requestBody.put("email", "rvit22bis056.rvitm@rvei.edu.in");    // Your Email
+        requestBody.put("name", "Uzma Farzana M");                     
+        requestBody.put("regNo", "1RF22IS093");                        
+        requestBody.put("email", "rvit22bis056.rvitm@rvei.edu.in");    
 
         String webhookUrl = null;
         String accessToken = null;
@@ -47,18 +47,17 @@ public class DemoApplication implements CommandLineRunner {
             System.out.println("⚠️ API call failed: " + e.getMessage());
         }
 
-        // STOP if webhook or accessToken is missing
+        
         if (webhookUrl == null || accessToken == null) {
             System.out.println("❌ Cannot continue without webhook & accessToken.");
             return;
         }
 
-        // STEP 2: Your final SQL query from the Question PDF
-        // Since regNo ends with 93 (odd), you must use Question 1
-        String finalQuery = "YOUR_SQL_QUERY_HERE";
-        // ⬆️ Replace this with the actual SQL query solution
+        
+        String finalQuery = "QUERY_HERE";
+        
 
-        // STEP 3: Submit answer to webhook
+        
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
