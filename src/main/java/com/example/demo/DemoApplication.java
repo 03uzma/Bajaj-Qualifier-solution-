@@ -24,9 +24,9 @@ public class DemoApplication implements CommandLineRunner {
         String generateUrl = "https://bfhldevapigw.healthrx.co.in/hiring/generateWebhook/JAVA";
 
         Map<String, String> requestBody = new HashMap<>();
-        requestBody.put("name", "Uzma Farzana M");                     // Your Name
-        requestBody.put("regNo", "1RF22IS093");                        // Your RegNo
-        requestBody.put("email", "rvit22bis056.rvitm@rvei.edu.in");    // Your Email
+        requestBody.put("name", "Uzma Farzana M");                     
+        requestBody.put("regNo", "1RF22IS093");                        
+        requestBody.put("email", "rvit22bis056.rvitm@rvei.edu.in");    
 
         String webhookUrl = null;
         String accessToken = null;
